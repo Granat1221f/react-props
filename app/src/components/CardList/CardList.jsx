@@ -1,10 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Card from '../Card/Card.jsx';
-import './CardList.css';
+
+const CardListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+`;
 
 function CardList({ cards }) {
   return (
-    <div className="card-list">
+    <CardListWrapper>
       {cards.map(card => (
         <Card
           key={card.id}
@@ -13,7 +20,7 @@ function CardList({ cards }) {
           image={card.image}
         />
       ))}
-    </div>
+    </CardListWrapper>
   );
 }
 
